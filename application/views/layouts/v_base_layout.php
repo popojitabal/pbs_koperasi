@@ -5,44 +5,7 @@
 
 $title = "Nama Aplikasi";
 
-$navItem = [
-    [
-        "url" => base_url(''),
-        "tag" => "homepage",
-        "name" => "Beranda",
-        "icon" => null,
-    ],
-    [
-        "url" => base_url('pembelian/c_pembelian'),
-        "tag" => "pembelian",
-        "name" => "Pembelian",
-        "icon" => null,
-    ],
-    [
-        "url" => base_url('pembayaran/c_pembayaran'),
-        "tag" => "pembayaran",
-        "name" => "Pembayaran",
-        "icon" => null,
-    ],
-    [
-        "url" => base_url('pinjaman/c_pinjaman'),
-        "tag" => "pinjaman",
-        "name" => "Pinjaman",
-        "icon" => null,
-    ],
-    [
-        "url" => base_url('laporan/c_laporan'),
-        "tag" => "laporan",
-        "name" => "Laporan",
-        "icon" => null,
-    ],
-    // [
-    //     "url" => base_url('master/c_master'),
-    //     "tag" => "master",
-    //     "name" => "Master",
-    //     "icon" => null,
-    // ],
-];
+$navItem = navItems();
 ?>
 <head>
     <title><?=$title?></title>
@@ -56,6 +19,24 @@ $navItem = [
     <script src="<?= base_url('assets/js/jquery.datatables.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/bootstrap.js') ?>"></script>
+
+    <style>
+        @font-face {
+            font-family: "Nexa";
+            src: url('/assets/font/NexaRegular.otf');
+        }
+        @font-face {
+            font-family: "NexaBold";
+            src: url('/assets/font/NexaBold.otf');
+        }
+        @font-face {
+            font-family: "NexaLight";
+            src: url('/assets/font/NexaLight.otf');
+        }
+        body {
+            font-family: Nexa, NexaBold, NexaLight; 
+        }
+    </style>
 </head>
 <!-- body -->
 
@@ -63,23 +44,25 @@ $navItem = [
     <div class="bg-white">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a href="#" class="navbar-brand"><?=$title?></a>
+                <a href="#" class="navbar-brand">
+                    <img src="<?=base_url('/assets/img/logo.jpg')?>" alt="" style="width: 30vh">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse text-white w-100 ml-auto d-flex flex-row-reverse" id="navbarNav">
                     <div class="navbar-nav">
-                        <?php foreach($navItem as $item): ?>
+                        <?php foreach($navItem as $item): if($item['nav']): ?>
                         <a class="nav-item nav-link px-3 text-white <?=$item['tag'] == $tag ? 'border border-light rounded-lg active' : ''?>" href="<?=$item['tag'] == $tag ? "#" : $item['url']?>"><?=$item['name']?> <?= $item['tag'] == $tag ? '<span class="sr-only">(current)</span>' : '' ?></a>
-                        <?php endforeach ?>
+                        <?php endif; endforeach ?>
                     </div>
                 </div>  
             </div>
             
         </nav>
-        <div class="jumbotron">
-            <h1 class="display-1 text-center">Disini mo taru gambar!</h1>
-            <!-- <img src="" alt=""> -->
+        <div class="">
+            <!-- <h1 class="display-1 text-center">Disini mo taru gambar!</h1> -->
+            <img src="<?=base_url('/assets/img/banner_lg.jpg')?>" alt="" style="width:100%">
         </div>
         <main>
             <div class="container jumbotron">
@@ -95,7 +78,6 @@ $navItem = [
 <script>
     function checkJquery() {
         const navbarBrand = $('.navbar-brand').html();
-        console.log(navbarBrand);
     }
     checkJquery();
     $(document).ready(function (){
