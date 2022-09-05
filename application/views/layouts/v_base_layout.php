@@ -45,7 +45,7 @@ $navItem = navItems();
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a href="#" class="navbar-brand">
-                    <img src="<?=base_url('/assets/img/logo.jpg')?>" alt="" style="width: 30vh">
+                    <img src="<?=base_url('/assets/img/logo.jpg')?>" class="px-2 bg-white" style="width: 30vh; border-radius:20px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -65,7 +65,7 @@ $navItem = navItems();
             <img src="<?=base_url('/assets/img/banner_lg.jpg')?>" alt="" style="width:100%">
         </div>
         <main>
-            <div class="container jumbotron">
+            <div class="container my-5">
                 <?php if ($page_content != "") $this->load->view($page_content); ?>
             </div>
         </main>
