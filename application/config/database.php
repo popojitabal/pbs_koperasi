@@ -75,11 +75,12 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
+	'hostname' => '192.168.1.74',
+	'username' => 'root',
+	'password' => 'root',
+	'database' => 'bri_db',
 	'dbdriver' => 'mysqli',
+	'port' => '3306',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

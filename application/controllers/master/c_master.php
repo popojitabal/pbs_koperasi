@@ -23,9 +23,37 @@ class c_master extends CI_Controller {
 	{
         parent::__construct();
 		$this->session->set_userdata('tag', 'master');
+
+		$this->load->model('master/m_master', 'master');
 	}
 	public function index()
 	{
-		render('pages/master/v_master');
+		$data['list_karyawan'] = $this->master->getKaryawan(); 
+
+		render('pages/master/v_master', $data);
+	}
+
+	public function createKaryawan()
+	{
+		$data = $this->input->post();
+		$result = $this->master->createKaryawan($data);
+
+		redirect('master/c_master');
+	}
+
+	public function updateKaryawan()
+	{
+		$data = $this->input->post();
+		$result = $this->master->updateKaryawan($data, $data['id_mst_karyawan']);
+
+		redirect('master/c_master');
+	}
+
+	public function deleteKaryawan($id_mst_karyawan)
+	{
+
+		$result = $this->master->deleteKaryawan($id_mst_karyawan);
+
+		redirect('master/c_master/barang');
 	}
 }

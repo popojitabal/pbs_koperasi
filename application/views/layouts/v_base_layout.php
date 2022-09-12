@@ -19,7 +19,9 @@ $navItem = navItems();
     <script src="<?= base_url('assets/js/jquery.datatables.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/bootstrap.js') ?>"></script>
-
+    <link rel="stylesheet" href="<?= base_url('assets/css/fa/all.min.css') ?>">
+    <script type="text/javascript" src="<?=base_url('assets/select2/js/select2.min.js')?>"></script>
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/select2/css/select2.min.css')?>" />
     <style>
         @font-face {
             font-family: "Nexa";
@@ -35,6 +37,10 @@ $navItem = navItems();
         }
         body {
             font-family: Nexa, NexaBold, NexaLight; 
+        }
+
+        .btn-nav-custom {
+            width: 100px;
         }
     </style>
 </head>
@@ -82,7 +88,9 @@ $navItem = navItems();
     checkJquery();
     $(document).ready(function (){
         $('.default-datatable').DataTable();
+        $('.selectize_this').select2();
     })
+
     // $(function() {
     //     // alert('laoded')
     // })

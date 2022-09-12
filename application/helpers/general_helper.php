@@ -1,5 +1,9 @@
 <?php
 
+function dd($var) 
+{   
+    var_dump($var);die;
+}
 function render($pageContent = "", $data = [])
 {
     $CI = &get_instance();
@@ -54,4 +58,79 @@ function navItems() {
             "nav" => false
         ],
     ];
+}
+
+function listBulan()
+{
+    return [
+        1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    ];
+}
+
+function listHari()
+{
+    return [
+        'Minggu',
+        'Senin',
+        'Selasa',
+        'Rabu',
+        'Kamis',
+        'Jumat',
+        'Sabtu'
+    ];
+}
+
+function formatBulan($intBulan)
+{
+    $list_bulan = listBulan();
+
+    return $list_bulan[(int) $intBulan];
+}
+
+function formatHari($intHari)
+{
+    $list_hari = listHari();
+
+    return $list_hari[(int) $intHari];
+}
+
+function formatBulanInt($strDateTime) 
+{
+    return (int) date('m', strtotime($strDateTime));
+}
+
+function formatTahun($strDateTime) 
+{
+    return date('Y', strtotime($strDateTime));
+}
+
+function formatPeriode($strDate)
+{
+    $tahun = date('Y', strtotime($strDate));
+    $bulan = date('m', strtotime($strDate));
+
+    $list_bulan = listBulan();
+
+    return $list_bulan[(int) $bulan]. ' ' .$tahun;
+}
+
+function formatDate($strDate)
+{
+    return date('d/m/Y',strtotime($strDate));
+}
+
+function formatDateTime($strDateTime)
+{
+    return date('d/m/Y h:i:s',strtotime($strDateTime));
 }

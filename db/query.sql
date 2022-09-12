@@ -26,7 +26,7 @@ CREATE TABLE `mst_karyawan` (
 
 CREATE TABLE `mst_toko` (
 	`id_mst_toko` BIGINT(20) NOT NULL AUTO_INCREMENT,
-	`nama_toko` BIGINT(20) NOT NULL,
+	`nama_toko` VARCHAR(255) NOT NULL,
 	`alamat` VARCHAR(255) NULL DEFAULT NULL,
 	`no_telp` VARCHAR(50) NULL DEFAULT NULL,
 	`date_created` TIMESTAMP NOT NULL DEFAULT current_timestamp(),
@@ -38,7 +38,7 @@ CREATE TABLE `mst_toko` (
 CREATE TABLE `trx_pembayaran` (
 	`id_trx_pembayaran` BIGINT(20) NOT NULL AUTO_INCREMENT,
 	`id_mst_karyawan` BIGINT(20) NOT NULL DEFAULT '0',
-	`tgl_pembayaran` BIGINT(20) NOT NULL DEFAULT '0',
+	`tgl_pembayaran` DATETIME NOT NULL,
 	`periode` DATE NOT NULL,
 	`nominal` DOUBLE NOT NULL DEFAULT '0',
 	`jenis_pembayaran` VARCHAR(255) NOT NULL,
@@ -55,6 +55,7 @@ CREATE TABLE `trx_pembelian` (
 	`id_mst_toko` BIGINT(20) NOT NULL,
 	`harga_beli` DOUBLE NOT NULL DEFAULT '0',
 	`harga_jual` DOUBLE NOT NULL DEFAULT '0',
+	`jumlah_barang` DOUBLE NOT NULL DEFAULT '0',
 	`metadata` LONGTEXT NULL DEFAULT NULL,
 	`date_created` TIMESTAMP NOT NULL DEFAULT current_timestamp(),
 	`deleted` TINYINT(4) NOT NULL DEFAULT '0',
@@ -70,6 +71,7 @@ CREATE TABLE `trx_pinjaman` (
 	`tenor` INT(11) NOT NULL,
 	`bunga` DOUBLE NOT NULL,
 	`metadata` LONGTEXT NULL DEFAULT NULL,
+	`lunas` TINYINT(4) NOT NULL DEFAULT '0',
 	`date_created` TIMESTAMP NOT NULL DEFAULT current_timestamp(),
 	`deleted` TINYINT(4) NOT NULL DEFAULT '0',
 	`date_deleted` DATETIME NULL DEFAULT NULL,
