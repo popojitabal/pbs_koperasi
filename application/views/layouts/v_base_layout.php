@@ -23,15 +23,15 @@ $navItem = navItems();
     <style>
         @font-face {
             font-family: "Nexa";
-            src: url('/assets/font/NexaRegular.otf');
+            src: url("<?=base_url('/assets/font/NexaRegular.otf')?>");
         }
         @font-face {
             font-family: "NexaBold";
-            src: url('/assets/font/NexaBold.otf');
+            src: url("<?=base_url('/assets/font/NexaBold.otf')?>");
         }
         @font-face {
             font-family: "NexaLight";
-            src: url('/assets/font/NexaLight.otf');
+            src: url("<?=base_url('/assets/font/NexaLight.otf')?>");
         }
         body {
             font-family: Nexa, NexaBold, NexaLight; 
